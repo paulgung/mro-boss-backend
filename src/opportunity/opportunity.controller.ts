@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 import {
   CreateOpportunityDtoPage1,
@@ -46,28 +47,40 @@ export class OpportunityController {
     return this.opportunityService.createPage4(createOpportunityDto);
   }
 
-  // 查询page1数据
+  // 分页查询page1数据
   @Get('page1')
-  findAllPage1() {
-    return this.opportunityService.findAllPage1();
+  findSkipPage1(@Query() query) {
+    return this.opportunityService.findSkipPage1(
+      parseInt(query.pageSize),
+      parseInt(query.pageNo),
+    );
   }
 
-  // 查询page2数据
+  // 分页查询page2数据
   @Get('page2')
-  findAllPage2() {
-    return this.opportunityService.findAllPage2();
+  findSkipPage2(@Query() query) {
+    return this.opportunityService.findSkipPage2(
+      parseInt(query.pageSize),
+      parseInt(query.pageNo),
+    );
   }
 
-  // 查询page3数据
+  // 分页查询page3数据
   @Get('page3')
-  findAllPage3() {
-    return this.opportunityService.findAllPage3();
+  findSkipPage3(@Query() query) {
+    return this.opportunityService.findSkipPage3(
+      parseInt(query.pageSize),
+      parseInt(query.pageNo),
+    );
   }
 
-  // 查询page4数据
+  // 分页查询page4数据
   @Get('page4')
-  findAllPage4() {
-    return this.opportunityService.findAllPage4();
+  findSkipPage4(@Query() query) {
+    return this.opportunityService.findSkipPage4(
+      parseInt(query.pageSize),
+      parseInt(query.pageNo),
+    );
   }
 
   @Get(':id')

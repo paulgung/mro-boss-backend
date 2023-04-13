@@ -53,6 +53,41 @@ export class OpportunityService {
     return this.prisma.opportunityPage4.findMany();
   }
 
+  // 分页查询page1数据
+  async findSkipPage1(pageSize: number, pageNo: number) {
+    const total = await this.prisma.opportunityPage1.count();
+    const data = await this.prisma.opportunityPage1.findMany({
+      skip: pageSize * (pageNo - 1),
+      take: pageSize,
+    });
+    const success = true;
+    return { data, success, total };
+  }
+
+  // 分页查询page2数据
+  findSkipPage2(pageSize: number, pageNo: number) {
+    return this.prisma.opportunityPage2.findMany({
+      skip: pageSize * (pageNo - 1),
+      take: pageSize,
+    });
+  }
+
+  // 分页查询page3数据
+  findSkipPage3(pageSize: number, pageNo: number) {
+    return this.prisma.opportunityPage3.findMany({
+      skip: pageSize * (pageNo - 1),
+      take: pageSize,
+    });
+  }
+
+  // 分页查询page4数据
+  findSkipPage4(pageSize: number, pageNo: number) {
+    return this.prisma.opportunityPage4.findMany({
+      skip: pageSize * (pageNo - 1),
+      take: pageSize,
+    });
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} opportunity`;
   }

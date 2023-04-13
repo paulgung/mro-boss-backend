@@ -12,7 +12,7 @@ datasource db {
 
 model OpportunityPage1 {
   id          Int     @id @unique @default(autoincrement())
-  companyName String  @unique
+  companyName String  @default("")
   phone       String? @default("")
   name        String? @default("")
   address     String? @default("")
@@ -22,7 +22,7 @@ model OpportunityPage1 {
 model OpportunityPage2 {
   id          Int     @id @unique @default(autoincrement())
   productId   String  @unique
-  productName String  @unique
+  productName String  @default("")
   standard    String? @default("")
   type        String? @default("")
   unit        String? @default("")
@@ -32,7 +32,7 @@ model OpportunityPage2 {
 model OpportunityPage3 {
   id           Int     @id @unique @default(autoincrement())
   customerId   String  @unique
-  customerName String  @unique
+  customerName String  @default("")
   area         String? @default("")
   phone        String? @default("")
   remark       String? @default("")
@@ -41,7 +41,7 @@ model OpportunityPage3 {
 model OpportunityPage4 {
   id           Int     @id @unique @default(autoincrement())
   supplierId   String  @unique
-  supplierName String  @unique
+  supplierName String  @default("")
   phone        String? @default("")
   remark       String? @default("")
 }
