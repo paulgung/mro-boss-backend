@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import { OpportunityService } from './opportunity.service';
+import { PrismaService } from '../prisma.service';
 import { OpportunityController } from './opportunity.controller';
+import { OpportunityService } from './opportunity.service';
 
 @Module({
   controllers: [OpportunityController],
-  providers: [OpportunityService]
+  providers: [OpportunityService, PrismaService],
 })
 export class OpportunityModule {}

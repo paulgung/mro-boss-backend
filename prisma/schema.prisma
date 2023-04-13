@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model OpportunityPage1 {
+  id          Int     @id @unique @default(autoincrement())
+  companyName String  @unique
+  phone       String? @default("")
+  name        String? @default("")
+  address     String? @default("")
+  remark      String? @default("")
+}
+
+model OpportunityPage2 {
+  id          Int     @id @unique @default(autoincrement())
+  productId   String  @unique
+  productName String  @unique
+  standard    String? @default("")
+  type        String? @default("")
+  unit        String? @default("")
+  remark      String? @default("")
+}
+
+model OpportunityPage3 {
+  id           Int     @id @unique @default(autoincrement())
+  customerId   String  @unique
+  customerName String  @unique
+  area         String? @default("")
+  phone        String? @default("")
+  remark       String? @default("")
+}
+
+model OpportunityPage4 {
+  id           Int     @id @unique @default(autoincrement())
+  supplierId   String  @unique
+  supplierName String  @unique
+  phone        String? @default("")
+  remark       String? @default("")
+}
