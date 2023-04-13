@@ -65,27 +65,36 @@ export class OpportunityService {
   }
 
   // 分页查询page2数据
-  findSkipPage2(pageSize: number, pageNo: number) {
-    return this.prisma.opportunityPage2.findMany({
+  async findSkipPage2(pageSize: number, pageNo: number) {
+    const total = await this.prisma.opportunityPage2.count();
+    const data = await this.prisma.opportunityPage2.findMany({
       skip: pageSize * (pageNo - 1),
       take: pageSize,
     });
+    const success = true;
+    return { data, success, total };
   }
 
   // 分页查询page3数据
-  findSkipPage3(pageSize: number, pageNo: number) {
-    return this.prisma.opportunityPage3.findMany({
+  async findSkipPage3(pageSize: number, pageNo: number) {
+    const total = await this.prisma.opportunityPage3.count();
+    const data = await this.prisma.opportunityPage3.findMany({
       skip: pageSize * (pageNo - 1),
       take: pageSize,
     });
+    const success = true;
+    return { data, success, total };
   }
 
   // 分页查询page4数据
-  findSkipPage4(pageSize: number, pageNo: number) {
-    return this.prisma.opportunityPage4.findMany({
+  async findSkipPage4(pageSize: number, pageNo: number) {
+    const total = await this.prisma.opportunityPage4.count();
+    const data = await this.prisma.opportunityPage4.findMany({
       skip: pageSize * (pageNo - 1),
       take: pageSize,
     });
+    const success = true;
+    return { data, success, total };
   }
 
   findOne(id: number) {

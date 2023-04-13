@@ -1,4 +1,42 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { CreateInboundDto } from './create-inbound.dto';
+import {
+  CreateInboundDtoPage1,
+  CreateInboundDtoPage2,
+} from './create-inbound.dto';
+import { ApiProperty } from '@nestjs/swagger';
 
-export class UpdateInboundDto extends PartialType(CreateInboundDto) {}
+export class UpdateInboundDtoPage1 extends PartialType(CreateInboundDtoPage1) {
+  @ApiProperty()
+  inboundId: string;
+  @ApiProperty()
+  inboundDate: string;
+  @ApiProperty()
+  supplierId: string;
+  @ApiProperty()
+  operator: string;
+  @ApiProperty()
+  remark: string;
+}
+
+export class UpdateInboundDtoPage2 extends PartialType(CreateInboundDtoPage2) {
+  @ApiProperty()
+  inboundId: string;
+  @ApiProperty()
+  productId: string;
+  @ApiProperty()
+  productName: string;
+  @ApiProperty()
+  standard: string;
+  @ApiProperty()
+  type: string;
+  @ApiProperty()
+  unit: string;
+  @ApiProperty()
+  inboundNumber: string;
+  @ApiProperty()
+  inboundPrice: string;
+  @ApiProperty()
+  inboundTotal: string;
+  @ApiProperty()
+  remark: string;
+}

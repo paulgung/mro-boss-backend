@@ -45,3 +45,26 @@ model OpportunityPage4 {
   phone        String? @default("")
   remark       String? @default("")
 }
+
+model InboundPage1 {
+  id          Int     @id @unique @default(autoincrement())
+  inboundId   String  @default("")
+  inboundDate String? @default("")
+  supplierId  String? @default("")
+  operator    String? @default("")
+  remark      String? @default("")
+}
+
+model InboundPage2 {
+  id            Int     @id @unique @default(autoincrement())
+  inboundId     String  @default("")
+  productId     String  @default("")
+  productName   String? @default("")
+  standard      String? @default("")
+  type          String? @default("")
+  unit          String? @default("")
+  inboundNumber String? @default("")
+  inboundPrice  String? @default("")
+  inboundTotal  String? @default("")
+  remark        String? @default("")
+}

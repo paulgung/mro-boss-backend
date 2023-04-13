@@ -55,7 +55,6 @@ export class OpportunityController {
       parseInt(query.pageNo),
     );
   }
-
   // 分页查询page2数据
   @Get('page2')
   findSkipPage2(@Query() query) {
@@ -64,7 +63,6 @@ export class OpportunityController {
       parseInt(query.pageNo),
     );
   }
-
   // 分页查询page3数据
   @Get('page3')
   findSkipPage3(@Query() query) {
@@ -73,7 +71,6 @@ export class OpportunityController {
       parseInt(query.pageNo),
     );
   }
-
   // 分页查询page4数据
   @Get('page4')
   findSkipPage4(@Query() query) {
@@ -81,11 +78,6 @@ export class OpportunityController {
       parseInt(query.pageSize),
       parseInt(query.pageNo),
     );
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.opportunityService.findOne(+id);
   }
 
   // page1 更新数据
@@ -96,7 +88,6 @@ export class OpportunityController {
   ) {
     return this.opportunityService.updatePage1(+id, updateOpportunityDto);
   }
-
   // page2 更新数据
   @Patch('page2')
   updatePage2(
@@ -105,7 +96,6 @@ export class OpportunityController {
   ) {
     return this.opportunityService.updatePage2(+id, updateOpportunityDto);
   }
-
   // page3 更新数据
   @Patch('page3')
   updatePage3(
@@ -114,7 +104,6 @@ export class OpportunityController {
   ) {
     return this.opportunityService.updatePage3(+id, updateOpportunityDto);
   }
-
   // page4 更新数据
   @Patch('page4')
   updatePage4(
