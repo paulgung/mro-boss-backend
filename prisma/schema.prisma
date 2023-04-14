@@ -68,3 +68,49 @@ model InboundPage2 {
   inboundTotal  String? @default("")
   remark        String? @default("")
 }
+
+model OutboundPage1 {
+  id           Int     @id @unique @default(autoincrement())
+  outboundId   String  @default("")
+  outboundDate String? @default("")
+  supplierId   String? @default("")
+  operator     String? @default("")
+  remark       String? @default("")
+}
+
+model OutboundPage2 {
+  id             Int     @id @unique @default(autoincrement())
+  outboundId     String  @default("")
+  productId      String  @default("")
+  productName    String? @default("")
+  standard       String? @default("")
+  type           String? @default("")
+  unit           String? @default("")
+  outboundNumber String? @default("")
+  outboundPrice  String? @default("")
+  outboundTotal  String? @default("")
+  remark         String? @default("")
+}
+
+model OutboundPage3 {
+  id           Int     @id @unique @default(autoincrement())
+  outboundId   String  @default("")
+  outboundDate String? @default("")
+  supplierId   String? @default("")
+  operator     String? @default("")
+  remark       String? @default("")
+}
+
+model OutboundPage4 {
+  id             Int     @id @unique @default(autoincrement())
+  outboundId     String  @default("")
+  productId      String  @default("")
+  productName    String? @default("")
+  standard       String? @default("")
+  type           String? @default("")
+  unit           String? @default("")
+  outboundNumber String? @default("")
+  outboundPrice  String? @default("")
+  outboundTotal  String? @default("")
+  remark         String? @default("")
+}
