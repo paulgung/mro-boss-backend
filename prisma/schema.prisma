@@ -114,3 +114,96 @@ model OutboundPage4 {
   outboundTotal  String? @default("")
   remark         String? @default("")
 }
+
+model LossPage1 {
+  id          Int     @id @unique @default(autoincrement())
+  date        String  @default("")
+  productId   String  @default("")
+  productName String? @default("")
+  standard    String? @default("")
+  type        String? @default("")
+  unit        String? @default("")
+  lossNumber  String? @default("")
+  lossPrice   String? @default("")
+  lossTotal   String? @default("")
+  remark      String? @default("")
+}
+
+model FinancePage1 {
+  id           Int     @id @unique @default(autoincrement())
+  lock         Boolean @default(false)
+  date         String  @default("")
+  supplierName String? @default("")
+  totalMoney   String? @default("")
+  payWay       String? @default("")
+  account      String? @default("")
+  operator     String? @default("")
+  remark       String? @default("")
+}
+
+model FinancePage2 {
+  id           Int     @id @unique @default(autoincrement())
+  lock         Boolean @default(false)
+  date         String  @default("")
+  customerName String? @default("")
+  totalMoney   String? @default("")
+  payWay       String? @default("")
+  account      String? @default("")
+  operator     String? @default("")
+  remark       String? @default("")
+}
+
+model FinancePage3 {
+  id         Int     @id @unique @default(autoincrement())
+  lock       Boolean @default(false)
+  date       String  @default("")
+  driverName String? @default("")
+  totalMoney String? @default("")
+  payWay     String? @default("")
+  account    String? @default("")
+  operator   String? @default("")
+  remark     String? @default("")
+}
+
+model StatisticsPage1 {
+  id             Int     @id @unique @default(autoincrement())
+  inboundId      String  @default("")
+  productId      String  @default("")
+  productName    String? @default("")
+  standard       String? @default("")
+  type           String? @default("")
+  unit           String? @default("")
+  inboundNumber  String? @default("")
+  outboundNumber String? @default("")
+  lossNumber     String? @default("")
+  currentNumber  String? @default("")
+}
+
+model StatisticsPage2 {
+  id           Int     @id @unique @default(autoincrement())
+  supplierName String? @default("")
+  buyMoney     String? @default("")
+  payMoney     String? @default("")
+  totalMoney   String? @default("")
+}
+
+model StatisticsPage3 {
+  id           Int     @id @unique @default(autoincrement())
+  customerName String? @default("")
+  buyMoney     String? @default("")
+  payMoney     String? @default("")
+  totalMoney   String? @default("")
+}
+
+model StatisticsPage4 {
+  id          Int     @id @unique @default(autoincrement())
+  productId   String  @default("")
+  productName String? @default("")
+  standard    String? @default("")
+  type        String? @default("")
+  unit        String? @default("")
+  saleNumber  String? @default("")
+  salePrice   String? @default("")
+  costPrice   String? @default("")
+  saleTotal   String? @default("")
+}

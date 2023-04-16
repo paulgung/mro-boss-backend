@@ -1,34 +1,41 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
+import { CreateLossDtoPage1 } from './dto/create-loss.dto';
+import { UpdateLossDtoPage1 } from './dto/update-loss.dto';
 import { LossService } from './loss.service';
-import { CreateLossDto } from './dto/create-loss.dto';
-import { UpdateLossDto } from './dto/update-loss.dto';
 
 @Controller('loss')
 export class LossController {
   constructor(private readonly lossService: LossService) {}
 
-  @Post()
-  create(@Body() createLossDto: CreateLossDto) {
-    return this.lossService.create(createLossDto);
+  // page1 新建数据
+  @Post('/page1')
+  createPage1(@Body() createOpportunityDto: CreateLossDtoPage1) {
+    return this.lossService.createPage1(createOpportunityDto);
   }
 
-  @Get()
-  findAll() {
-    return this.lossService.findAll();
+  // 分页查询page1数据
+  @Get('page1')
+  findSkipPage1(@Query() query) {
+    return this.lossService.findSkipPage1(
+      parseInt(query.pageSize),
+      parseInt(query.pageNo),
+    );
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.lossService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateLossDto: UpdateLossDto) {
-    return this.lossService.update(+id, updateLossDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.lossService.remove(+id);
+  // page1 更新数据
+  @Patch('page1')
+  updatePage1(
+    @Param('id') id: string,
+    @Body() updateOpportunityDto: UpdateLossDtoPage1,
+  ) {
+    return this.lossService.updatePage1(+id, updateOpportunityDto);
   }
 }

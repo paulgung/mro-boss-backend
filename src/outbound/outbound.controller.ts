@@ -36,12 +36,12 @@ export class OutboundController {
     return this.outboundService.createPage2(createOutboundDto);
   }
 
-  // page1 新建数据
+  // page3 新建数据
   @Post('/page3')
   createPage3(@Body() createOutboundDto: CreateOutboundDtoPage3) {
     return this.outboundService.createPage3(createOutboundDto);
   }
-  // page2 新建数据
+  // page4 新建数据
   @Post('/page4')
   createPage4(@Body() createOutboundDto: CreateOutboundDtoPage4) {
     return this.outboundService.createPage4(createOutboundDto);
@@ -96,7 +96,7 @@ export class OutboundController {
   ) {
     return this.outboundService.updatePage2(+id, updateOutboundDto);
   }
-  // page1 更新数据
+  // page3 更新数据
   @Patch('page3')
   updatePage3(
     @Param('id') id: string,
@@ -104,7 +104,7 @@ export class OutboundController {
   ) {
     return this.outboundService.updatePage3(+id, updateOutboundDto);
   }
-  // page2 更新数据
+  // page4 更新数据
   @Patch('page4')
   updatePage4(
     @Param('id') id: string,
