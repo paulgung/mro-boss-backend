@@ -1,6 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { IsString, IsInt } from 'class-validator';
 
 export class CreateStatisticDtoPage1 {
+  @IsString()
   @ApiProperty()
   inboundId: string;
   @ApiProperty()
