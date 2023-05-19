@@ -17,8 +17,20 @@ import {
 export class OpportunityService {
   constructor(private prisma: PrismaService) {}
   // 新建page1数据
-  createPage1(createOpportunityDto: CreateOpportunityDtoPage1) {
-    return this.prisma.opportunityPage1.create({ data: createOpportunityDto });
+  async createPage1(createOpportunityDto: CreateOpportunityDtoPage1) {
+    const { companyName, phone, name, address, remark } = createOpportunityDto;
+
+    // 使用 Prisma Client 创建新用户
+    const opportunityPage1 = await this.prisma.opportunityPage1.create({
+      data: {
+        companyName,
+        phone,
+        name,
+        address,
+        remark,
+      },
+    });
+    return { message: '单位信息创建成功！', opportunityPage1 };
   }
   // 新建page2数据
   createPage2(createOpportunityDto: CreateOpportunityDtoPage2) {
@@ -54,11 +66,20 @@ export class OpportunityService {
   }
 
   // 分页查询page1数据
-  async findSkipPage1(pageSize: number, pageNo: number) {
+  async findSkipPage1(
+    pageSize: number,
+    pageNo: number,
+    id: number,
+    companyName: string,
+  ) {
     const total = await this.prisma.opportunityPage1.count();
     const data = await this.prisma.opportunityPage1.findMany({
       skip: pageSize * (pageNo - 1),
       take: pageSize,
+      where: {
+        ...(id && { id: Number(id) }),
+        ...(companyName && { companyName }),
+      },
     });
     const success = true;
     return { data, success, total };

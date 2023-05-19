@@ -53,6 +53,8 @@ export class OpportunityController {
     return this.opportunityService.findSkipPage1(
       parseInt(query.pageSize),
       parseInt(query.pageNo),
+      parseInt(query.id),
+      query.companyName,
     );
   }
   // 分页查询page2数据
