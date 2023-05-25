@@ -115,8 +115,20 @@ export class OpportunityController {
     return this.opportunityService.updatePage4(+id, updateOpportunityDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.opportunityService.remove(+id);
+  @Delete('/page1/:id')
+  removePage1(@Param('id') id: string) {
+    return this.opportunityService.removePage1(+id);
+  }
+  @Delete('/page1/:id')
+  removePage2(@Param('id') id: string) {
+    return this.opportunityService.removePage2(+id);
+  }
+  @Delete('/page1/:id')
+  removePage3(@Param('id') id: string) {
+    return this.opportunityService.removePage3(+id);
+  }
+  @Delete('/page1/:id')
+  removePage4(@Param('id') id: string) {
+    return this.opportunityService.removePage4(+id);
   }
 }

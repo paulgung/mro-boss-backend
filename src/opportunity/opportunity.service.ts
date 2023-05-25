@@ -16,7 +16,7 @@ import {
 @Injectable()
 export class OpportunityService {
   constructor(private prisma: PrismaService) {}
-  // 新建page1数据
+  // 新建数据
   async createPage1(createOpportunityDto: CreateOpportunityDtoPage1) {
     const { companyName, phone, name, address, remark } = createOpportunityDto;
 
@@ -65,7 +65,7 @@ export class OpportunityService {
     return this.prisma.opportunityPage4.findMany();
   }
 
-  // 分页查询page1数据
+  // 分页查询数据
   async findSkipPage1(
     pageSize: number,
     pageNo: number,
@@ -122,10 +122,29 @@ export class OpportunityService {
     return `This action returns a #${id} opportunity`;
   }
 
-  // 更新page1数据
-  updatePage1(id: number, updateOpportunityDto: UpdateOpportunityDtoPage1) {
-    return `This action updates a #${id} opportunity`;
+  // 更新数据
+  async updatePage1(
+    id: number,
+    updateOpportunityDto: UpdateOpportunityDtoPage1,
+  ) {
+    const { companyName, phone, name, address, remark } = updateOpportunityDto;
+
+    // 使用 Prisma Client 更新用户
+    const opportunityPage1 = await this.prisma.opportunityPage1.update({
+      data: {
+        companyName,
+        phone,
+        name,
+        address,
+        remark,
+      },
+      where: {
+        ...(id && { id: Number(id) }),
+      },
+    });
+    return { message: '单位信息更新成功！', opportunityPage1 };
   }
+
   // 更新page2数据
   updatePage2(id: number, updateOpportunityDto: UpdateOpportunityDtoPage2) {
     return `This action updates a #${id} opportunity`;
@@ -139,7 +158,33 @@ export class OpportunityService {
     return `This action updates a #${id} opportunity`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} opportunity`;
+  // 删除数据
+  removePage1(id: number) {
+    this.prisma.opportunityPage1.delete({
+      where: {
+        ...(id && { id: Number(id) }),
+      },
+    });
+  }
+  removePage2(id: number) {
+    this.prisma.opportunityPage1.delete({
+      where: {
+        ...(id && { id: Number(id) }),
+      },
+    });
+  }
+  removePage3(id: number) {
+    this.prisma.opportunityPage1.delete({
+      where: {
+        ...(id && { id: Number(id) }),
+      },
+    });
+  }
+  removePage4(id: number) {
+    this.prisma.opportunityPage1.delete({
+      where: {
+        ...(id && { id: Number(id) }),
+      },
+    });
   }
 }
